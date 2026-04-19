@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A. Kurmann GmbH – Heizung, Sanitär, Lüftung</title>
+  <meta name="description" content="A. Kurmann GmbH – Ihr Fachbetrieb für Heizung, Sanitär und Lüftung in der Region Arth. Neuinstallationen, Umbauten, Reparaturen." />
+  <link rel="stylesheet" href="css/style.css" />
+  <!--
+    ╔══════════════════════════════════════════════════╗
+    ║  DESIGN VARIANT — uncomment exactly ONE line:   ║
+    ╠══════════════════════════════════════════════════╣
+    ║  <body class="variant-a">  ← Hero full-width    ║
+    ║  <body class="variant-b">  ← Split layout       ║
+    ║  <body class="variant-c">  ← Card-first         ║
+    ╚══════════════════════════════════════════════════╝
+  -->
+  <style>
+    /* Hide all variants by default, show only the active one */
+    .hero-a, .hero-b, .hero-c-wrap { display: none; }
+    body.variant-a .hero-a    { display: flex; }
+    body.variant-b .hero-b    { display: block; }
+    body.variant-c .hero-c-wrap { display: block; }
+    /* Default to variant-a if none chosen */
+    body:not(.variant-b):not(.variant-c) .hero-a { display: flex; }
+  </style>
+</head>
+
+<!-- ▼▼ CHANGE THIS CLASS TO SWITCH VARIANT ▼▼ -->
+<body class="variant-a">
+
+<!-- ============================================================
+     HEADER (shared across all pages)
+     ============================================================ -->
+<header class="site-header">
+  <div class="container">
+    <a class="site-logo" href="index.html" aria-label="Zur Startseite">
+      <img src="images/logo1.png" alt="A. Kurmann GmbH" />
+    </a>
+
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" id="navToggle">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <line x1="3" y1="6"  x2="21" y2="6"  />
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
+    </button>
+
+    <nav class="site-nav" id="siteNav" aria-label="Hauptnavigation">
+      <a href="serviceangebote.html">Serviceangebote</a>
+      <span class="nav-item">
+        <a href="dienstleistungen.html">Dienstleistungen</a>
+        <ul class="nav-dropdown">
+          <li><a href="heizung.html">Heizung</a></li>
+          <li><a href="sanitaer.html">Sanitär</a></li>
+          <li><a href="lueftung.html">Lüftung</a></li>
+        </ul>
+      </span>
+      <a href="referenzen.html">Referenzen</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================================================
+     VARIANT A — Full-width hero with firmenauto + tagline overlay
+     ============================================================ -->
+<section class="hero-a" aria-label="Willkommen bei A. Kurmann GmbH">
+  <div class="hero-a__bg" role="img" aria-label="Kurmann Firmenwagen"></div>
+  <div class="container">
+    <div class="hero-a__content">
+      <p class="hero-a__eyebrow">Heizung · Sanitär · Lüftung</p>
+      <h1 class="hero-a__title">Ihr Fachbetrieb<br>in der Region Arth</h1>
+      <p class="hero-a__subtitle">
+        Neuinstallationen, Umbauten und Reparaturen – wir planen und realisieren
+        Ihre Haustechnik-Projekte mit Erfahrung und Sorgfalt.
+      </p>
+      <div class="hero-a__actions">
+        <a href="dienstleistungen.html" class="btn btn-primary">Unsere Dienstleistungen</a>
+        <a href="kontakt.html" class="btn btn-outline" style="color:#fff;border-color:#fff;">Kontakt aufnehmen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     VARIANT B — Split layout: car left, intro + service cards right
+     ============================================================ -->
+<section class="hero-b" aria-label="Willkommen bei A. Kurmann GmbH">
+  <div class="container">
+    <div class="hero-b__inner">
+      <div class="hero-b__image">
+        <img src="images/firmenauto-scaled.jpg" alt="A. Kurmann GmbH Firmenwagen" loading="eager" />
+      </div>
+      <div class="hero-b__text">
+        <p class="hero-b__tagline">Heizung · Sanitär · Lüftung</p>
+        <h1 class="hero-b__title">Ihr Fachbetrieb<br>in der Region Arth</h1>
+        <p class="hero-b__desc">
+          A. Kurmann GmbH plant und realisiert Neuinstallationen, Umbauten und
+          Reparaturen im Bereich der Haustechnik – zuverlässig, sorgfältig und
+          persönlich.
+        </p>
+        <a href="kontakt.html" class="btn btn-primary">Jetzt Kontakt aufnehmen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     VARIANT C — Compact banner + 3 service tiles below
+     ============================================================ -->
+<div class="hero-c-wrap">
+  <div class="hero-c" aria-label="Willkommen">
+    <img class="hero-c__img" src="images/firmenauto-scaled.jpg" alt="A. Kurmann GmbH Firmenwagen" loading="eager" />
+    <div class="hero-c__overlay">
+      <h1 class="hero-c__title">A. Kurmann GmbH</h1>
+      <p class="hero-c__sub">Heizung · Sanitär · Lüftung · Region Arth</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SERVICE CARDS — shown for all variants below their hero
+     ============================================================ -->
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">Unsere <span>Leistungen</span></h2>
+    <p class="section-lead">
+      Von der Planung bis zur Ausführung – wir begleiten Ihr Projekt kompetent
+      und zuverlässig.
+    </p>
+    <div class="service-cards">
+
+      <article class="service-card">
+        <div class="service-card__icon">🔥</div>
+        <h3 class="service-card__title">Heizung</h3>
+        <p class="service-card__text">
+          Neuinstallationen, Umbauten, Sanierungen und Reparaturen –
+          Öl, Gas, Wärmepumpen, Pellets, Solar.
+        </p>
+        <a href="heizung.html">Mehr erfahren →</a>
+      </article>
+
+      <article class="service-card">
+        <div class="service-card__icon">🚿</div>
+        <h3 class="service-card__title">Sanitär</h3>
+        <p class="service-card__text">
+          Neuinstallationen, Badezimmer-Umbauten, Sanierungen,
+          Wasseraufbereitung und Regenwassernutzung.
+        </p>
+        <a href="sanitaer.html">Mehr erfahren →</a>
+      </article>
+
+      <article class="service-card">
+        <div class="service-card__icon">💨</div>
+        <h3 class="service-card__title">Lüftung</h3>
+        <p class="service-card__text">
+          Kontrollierte Wohnraumlüftung, Entlüftung von Nassräumen
+          und Abluftleitungen für Küchen.
+        </p>
+        <a href="lueftung.html">Mehr erfahren →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICE OFFER TEASER
+     ============================================================ -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;">
+      <div>
+        <h2 class="section-title">Service &amp; <span>Reparatur</span></h2>
+        <p class="section-lead">
+          Tropfender Wasserhahn, verstopfter Abfluss, Boilerentkalkung oder
+          Heizungsausfall? Wir kümmern uns schnell und kompetent um Ihre
+          Reparaturen – im Ein- und Mehrfamilienhaus.
+        </p>
+        <a href="serviceangebote.html" class="btn btn-primary">Zum Serviceangebot</a>
+      </div>
+      <div>
+        <img src="images/heizung_boiler-scaled.jpg"
+             alt="Heizung und Boiler"
+             style="border-radius:6px;box-shadow:0 2px 12px rgba(0,0,0,.08);width:100%;object-fit:cover;aspect-ratio:4/3;"
+             loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     REFERENZEN TEASER
+     ============================================================ -->
+<section class="section section-alt">
+  <div class="container" style="text-align:center;">
+    <h2 class="section-title">Unsere <span>Referenzen</span></h2>
+    <p class="section-lead" style="margin-inline:auto;">
+      Überzeugen Sie sich von unserer Arbeit – Bilder aus abgeschlossenen
+      Projekten in den Bereichen Heizung, Sanitär und Lüftung.
+    </p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.6rem;margin-bottom:1.5rem;" aria-hidden="true">
+      <img src="images/Kevin_20230718_142434-scaled.jpg" alt="" loading="lazy"
+           style="aspect-ratio:3/4;object-fit:cover;border-radius:6px;width:100%;" />
+      <img src="images/vorwandinstallation-scaled.jpg" alt="" loading="lazy"
+           style="aspect-ratio:3/4;object-fit:cover;border-radius:6px;width:100%;" />
+      <img src="images/komfortlueftung-scaled.jpg" alt="" loading="lazy"
+           style="aspect-ratio:4/3;object-fit:cover;border-radius:6px;width:100%;grid-column:span 1;" />
+      <img src="images/Kevin_IMG_20200417_100727-scaled.jpg" alt="" loading="lazy"
+           style="aspect-ratio:3/4;object-fit:cover;border-radius:6px;width:100%;" />
+    </div>
+    <a href="referenzen.html" class="btn btn-outline">Alle Referenzen ansehen</a>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT STRIP
+     ============================================================ -->
+<section style="background:var(--blue);color:#fff;padding:2.5rem 0;">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;">
+    <div>
+      <h2 style="font-size:1.4rem;font-weight:700;margin-bottom:0.25rem;">Haben Sie Fragen oder möchten ein Angebot?</h2>
+      <p style="opacity:.85;font-size:0.95rem;">Wir freuen uns auf Ihre Anfrage.</p>
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;flex-shrink:0;">
+      <a href="tel:0418554405" class="btn" style="background:#fff;color:var(--blue);">📞 041 855 44 05</a>
+      <a href="kontakt.html" class="btn" style="background:transparent;color:#fff;border:2px solid #fff;">Zur Kontaktseite</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER (shared across all pages)
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>A. Kurmann GmbH</h4>
+        <p>Klostermatt 7</p>
+        <p>6415 Arth</p>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <p>Mobile: <a href="tel:0793587032">079 358 70 32</a></p>
+        <p>Tel: <a href="tel:0418554405">041 855 44 05</a></p>
+        <p>Fax: 041 855 01 74</p>
+        <p><a href="mailto:alfons@kurmann-heizungsanitaer.ch">alfons@kurmann-heizungsanitaer.ch</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <p><a href="serviceangebote.html">Serviceangebote</a></p>
+        <p><a href="dienstleistungen.html">Dienstleistungen</a></p>
+        <p><a href="referenzen.html">Referenzen</a></p>
+        <p><a href="kontakt.html">Kontakt</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; <span id="year"></span> A. Kurmann GmbH · Heizung, Sanitär, Lüftung · Arth
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script>
+  // Dynamic year in footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Hamburger menu toggle
+  const toggle = document.getElementById('navToggle');
+  const nav    = document.getElementById('siteNav');
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  // Close nav when a link is clicked (mobile)
+  nav.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => { nav.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); })
+  );
+</script>
+</body>
+</html>

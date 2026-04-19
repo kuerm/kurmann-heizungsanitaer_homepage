@@ -1,0 +1,529 @@
+/* ============================================================
+   A. Kurmann GmbH — Heizung, Sanitär, Lüftung
+   Main stylesheet
+   ============================================================ */
+
+/* --- Design Tokens ----------------------------------------- */
+:root {
+  --blue:       #007CC6;
+  --blue-dark:  #005f99;
+  --red:        #FF2F18;
+  --text:       #1a1a1a;
+  --text-muted: #555;
+  --bg:         #ffffff;
+  --bg-alt:     #f4f7fa;
+  --border:     #dde3ea;
+  --max-width:  1024px;
+  --radius:     6px;
+  --shadow:     0 2px 12px rgba(0,0,0,.08);
+  --transition: 0.2s ease;
+}
+
+/* --- Reset & Base ------------------------------------------ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--blue); text-decoration: none; transition: color var(--transition); }
+a:hover { color: var(--blue-dark); }
+ul { list-style: none; }
+
+/* --- Layout ------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header {
+  background: var(--bg);
+  border-bottom: 2px solid var(--blue);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 6px rgba(0,0,0,.06);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  gap: 1rem;
+}
+
+.site-logo img {
+  height: 44px;
+  width: auto;
+}
+
+/* Main nav */
+.site-nav { display: flex; align-items: center; gap: 0.25rem; }
+
+.site-nav a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius);
+  transition: background var(--transition), color var(--transition);
+  white-space: nowrap;
+}
+.site-nav a:hover,
+.site-nav a.active { color: var(--blue); background: var(--bg-alt); }
+
+/* Dropdown */
+.nav-item { position: relative; }
+.nav-item > a::after { content: " ▾"; font-size: 0.7em; opacity: 0.6; }
+
+.nav-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  min-width: 160px;
+  z-index: 200;
+}
+.nav-dropdown a {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  border-radius: 0;
+}
+.nav-dropdown a:first-child { border-radius: var(--radius) var(--radius) 0 0; }
+.nav-dropdown a:last-child  { border-radius: 0 0 var(--radius) var(--radius); }
+.nav-item:hover .nav-dropdown,
+.nav-item:focus-within .nav-dropdown { display: block; }
+
+/* Hamburger */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  color: var(--text);
+}
+.nav-toggle svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background: #1d2b3a;
+  color: #c8d6e5;
+  padding: 2.5rem 0 1.5rem;
+  margin-top: 4rem;
+  font-size: 0.875rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.footer-col h4 {
+  color: #fff;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.footer-col a { color: #c8d6e5; }
+.footer-col a:hover { color: var(--blue); }
+.footer-col p + p { margin-top: 0.3rem; }
+
+.footer-bottom {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,.1);
+  text-align: center;
+  font-size: 0.8rem;
+  color: #7a92a8;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background var(--transition), transform var(--transition);
+  cursor: pointer;
+  border: none;
+}
+.btn-primary {
+  background: var(--blue);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--blue-dark); color: #fff; transform: translateY(-1px); }
+.btn-outline {
+  background: transparent;
+  color: var(--blue);
+  border: 2px solid var(--blue);
+}
+.btn-outline:hover { background: var(--blue); color: #fff; transform: translateY(-1px); }
+
+/* ============================================================
+   PAGE HERO (inner pages — thin banner)
+   ============================================================ */
+.page-hero {
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+  padding: 1.75rem 0;
+}
+.page-hero h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--blue);
+}
+.page-hero p {
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+}
+
+/* ============================================================
+   SECTION SPACING & HEADINGS
+   ============================================================ */
+.section { padding: 3rem 0; }
+.section-alt { background: var(--bg-alt); }
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+.section-title span { color: var(--blue); }
+.section-lead {
+  color: var(--text-muted);
+  max-width: 620px;
+  margin-bottom: 2rem;
+  font-size: 0.975rem;
+}
+
+/* ============================================================
+   HOMEPAGE — VARIANT A
+   Full-width hero, firmenauto image, tagline overlay
+   ============================================================ */
+.hero-a {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.hero-a__bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('../images/firmenauto-scaled.jpg');
+  background-size: cover;
+  background-position: center 60%;
+  filter: brightness(0.55);
+}
+.hero-a__content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  max-width: 600px;
+}
+.hero-a__eyebrow {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #FF2F18;
+  margin-bottom: 0.75rem;
+}
+.hero-a__title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.hero-a__subtitle {
+  font-size: 1.05rem;
+  opacity: 0.9;
+  margin-bottom: 1.75rem;
+  max-width: 480px;
+}
+.hero-a__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+/* ============================================================
+   HOMEPAGE — VARIANT B
+   Split: company car image left, intro + service cards right
+   ============================================================ */
+.hero-b {
+  padding: 3rem 0;
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+}
+.hero-b__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+.hero-b__image img {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 3/2;
+}
+.hero-b__tagline {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--red);
+  margin-bottom: 0.5rem;
+}
+.hero-b__title {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+.hero-b__desc {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* ============================================================
+   HOMEPAGE — VARIANT C
+   Header image banner + 3 service cards
+   ============================================================ */
+.hero-c {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+}
+.hero-c__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+  filter: brightness(0.6);
+}
+.hero-c__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+.hero-c__title {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 800;
+  text-shadow: 0 2px 8px rgba(0,0,0,.5);
+  margin-bottom: 0.5rem;
+}
+.hero-c__sub {
+  font-size: 1rem;
+  opacity: 0.9;
+  text-shadow: 0 1px 4px rgba(0,0,0,.4);
+}
+
+/* ============================================================
+   SERVICE CARDS (used by Variant B & C)
+   ============================================================ */
+.service-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.service-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--blue);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.service-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,.1); }
+.service-card__icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+.service-card__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 0.4rem;
+}
+.service-card__text {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+.service-card a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--blue);
+}
+.service-card a:hover { text-decoration: underline; }
+
+/* ============================================================
+   CONTENT SECTIONS (used on inner pages)
+   ============================================================ */
+.content-block { max-width: 780px; }
+.content-block p { margin-bottom: 1rem; color: var(--text-muted); }
+.content-block ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  color: var(--text-muted);
+}
+.content-block ul li { margin-bottom: 0.3rem; }
+
+/* Feature image (inner pages) */
+.feature-img {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 520px;
+  margin-top: 1.5rem;
+}
+
+/* ============================================================
+   GALLERY (referenzen page)
+   ============================================================ */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  cursor: pointer;
+  aspect-ratio: 4/3;
+  background: var(--bg-alt);
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.gallery-item:hover img { transform: scale(1.05); }
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.9);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.lightbox.open { display: flex; }
+.lightbox__img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 40px rgba(0,0,0,.5);
+}
+.lightbox__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity var(--transition);
+}
+.lightbox__close:hover { opacity: 1; }
+
+/* ============================================================
+   CONTACT PAGE
+   ============================================================ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+.contact-info dt {
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-top: 1rem;
+}
+.contact-info dd { margin-top: 0.15rem; }
+.contact-info dd a { color: var(--blue); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Header */
+  .site-nav { display: none; flex-direction: column; gap: 0; width: 100%; }
+  .site-nav.open { display: flex; position: absolute; top: 68px; left: 0; right: 0;
+    background: var(--bg); border-top: 1px solid var(--border); padding: 0.5rem 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,.1); z-index: 99; }
+  .site-nav a { padding: 0.65rem 1.25rem; }
+  .nav-toggle { display: block; }
+  .nav-item { width: 100%; }
+  .nav-dropdown { position: static; box-shadow: none; border: none; border-left: 3px solid var(--blue);
+    margin-left: 1rem; display: none; }
+  .nav-item:hover .nav-dropdown { display: block; }
+
+  /* Hero B grid */
+  .hero-b__inner { grid-template-columns: 1fr; }
+
+  /* Service cards */
+  .service-cards { grid-template-columns: 1fr; }
+
+  /* Gallery */
+  .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+
+  /* Contact */
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .hero-a { min-height: 360px; }
+  .hero-c { height: 240px; }
+  .service-cards { grid-template-columns: 1fr; }
+}
